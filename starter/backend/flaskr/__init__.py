@@ -163,6 +163,7 @@ def create_app(test_config=None):
         questions = Question.query.filter(Question.question.ilike('%{}%'.format(search_term))).all()
         current_questions = paginated_questions(request, questions)
         try:
+              # return success message
             return jsonify({
                 'success': True,
                 'questions': current_questions,
@@ -183,6 +184,7 @@ def create_app(test_config=None):
         category = Category.query.filter_by(id=category_id).first()
         questions = Question.query.filter(Question.category==str(category.id)).all()
         current_questions = paginated_questions(request, questions)
+          # return success message
         return jsonify({
             'success': True,
             'questions': current_questions,
@@ -220,6 +222,7 @@ def create_app(test_config=None):
                 next_question = None
             else:
                 next_question = random.choice(questions_list)
+                  # return success message
             return jsonify({
                 'success': True,
                 'question': next_question
