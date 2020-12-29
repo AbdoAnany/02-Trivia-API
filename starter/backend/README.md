@@ -66,6 +66,8 @@ One note before you delve into your tasks: for each endpoint you are expected to
 8. Create a POST endpoint to get questions to play the quiz. This endpoint should take category and previous question parameters and return a random questions within the given category, if provided, and that is not one of the previous questions. 
 9. Create error handlers for all expected errors including 400, 404, 422 and 500. 
 
+
+
 REVIEW_COMMENT
 ```
 This README is missing documentation of your endpoints. Below is an example for your endpoint to get all categories. Please use it as a reference for creating your documentation and resubmit your code. 
@@ -86,6 +88,57 @@ GET '/categories'
 '4' : "History",
 '5' : "Entertainment",
 '6' : "Sports"}
+
+Example
+GET /categories
+
+Returns all the categories
+URI:- http://127.0.0.1:5000/categories
+Response
+{
+"categories": {
+"1": "history",
+"2": "science",
+"3" : "Geography",
+"4" : "History",
+"5" : "Entertainment",
+"6" : "Sports"
+},
+"success": true
+}
+DELETE /questions/<int:id>
+
+Deletes question with given ID.
+URI:- http://127.0.0.1:5000/questions/12
+Response
+{
+  "id": 12,
+  "message": "Question deleted successfully ",
+  "success": true
+}
+POST /questions
+
+Inserting a new question.
+URI:- http://127.0.0.1:5000/questions
+JSON file format
+{
+"answer": "blue",
+"category": "2",
+"difficulty": 1,
+"id": 10,
+"question": "What is the colour of sky"
+}
+Response
+{
+"question": {
+  "answer": "blue",
+  "category": "2",
+  "difficulty": 1,
+  "id": 17,
+  "question": "What is the colour of sky"
+          },
+"success": true
+}
 
 ```
 
